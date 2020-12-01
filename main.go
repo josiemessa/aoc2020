@@ -2,60 +2,18 @@ package main
 
 import (
 	"fmt"
-	"sort"
-	"time"
+	"github.com/josiemessa/aoc2020/day1"
 )
 
 func main() {
-	start := time.Now()
-	sort.Ints(input)
+	fmt.Println("Day 1: Part 1")
+	s := day1.Solver{Target: 2020, Input: input}
+	p1 := s.Solve2()
+	fmt.Println("Solution: ", p1)
 
-	result := [3]int{}
-	for _, in := range input {
-		val1, val2, found := find(in)
-		if !found {
-			continue
-		} else {
-			result[0], result[1], result[2] = in, val1, val2
-			break
-		}
-	}
-
-	elapsed := time.Since(start)
-	fmt.Printf("The `for` loop took %d microseconds\n", elapsed.Microseconds())
-
-	fmt.Println("Two values:", result)
-	fmt.Println("Answer:", result[0]*result[1]*result[2])
-
-}
-
-// Try to find the counterpart to "in" that sums to 2020. If we find the counterpart, return true and the value,
-// otherwise return 0 and false.
-// TODO: keep track of pairs that didn't work and somehow remove them from the list
-func find(in int) (int, int, bool) {
-	for _, a := range input {
-		sum := in + a
-		// early break - we've pre-sorted the list, and we're adding up the smallest numbers together first, if we
-		// go over 2020 we're only getting bigger from this point so bomb out early.
-		if sum >= 2020 {
-			return 0, 0, false
-		}
-
-		rem := 2020 - sum
-		for _, b := range input {
-			if b == in || b == a {
-				continue
-			}
-			if b > rem {
-				break
-			}
-			if b == rem {
-				return a, b, true
-			}
-		}
-	}
-	// TODO: If this happens this gives some information about where to look next but I cba to figure that out
-	return 0, 0, false
+	fmt.Println("Day 1: Part 2")
+	p2 := s.Solve3()
+	fmt.Println("Solution: ", p2)
 }
 
 var input = []int{
