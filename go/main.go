@@ -1,22 +1,54 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"github.com/josiemessa/aoc2020/day1"
+	"log"
+	"os"
+
+	"github.com/josiemessa/aoc2020/go/day2"
 )
 
 func main() {
-	fmt.Println("Day 1: Part 1")
-	s := day1.Solver{Target: 2020, Input: input}
-	p1 := s.Solve2()
-	fmt.Println("Solution: ", p1)
+	//fmt.Println("Day 1: Part 1")
+	//d1 := day1.Solver{Target: 2020, Input: d1Input}
+	//p1 := d1.Solve2()
+	//fmt.Println("Solution: ", p1)
+	//
+	//fmt.Println("Day 1: Part 2")
+	//p2 := d1.Solve3()
+	//fmt.Println("Solution: ", p2)
 
-	fmt.Println("Day 1: Part 2")
-	p2 := s.Solve3()
-	fmt.Println("Solution: ", p2)
+	d2 := day2.PasswordSolver{Input: readFile("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day2")}
+	fmt.Println("Day 2: Part 1")
+	d2p1 := d2.Solve(true)
+	fmt.Println("Solution ", d2p1)
+
+	fmt.Println("Day 2: Part 2")
+	d2p2 := d2.Solve(false)
+	fmt.Println("Solution ", d2p2)
 }
 
-var input = []int{
+func readFile(name string) []string {
+	f, err := os.Open(name)
+	if err != nil {
+		log.Fatal("Could not open file", err)
+	}
+	defer f.Close()
+
+	scanner := bufio.NewScanner(f)
+	var lines []string
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal("scanner error", err)
+	}
+	return lines
+}
+
+var d1Input = []int{
 	1976,
 	1753,
 	1574,
