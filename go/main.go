@@ -16,11 +16,12 @@ func main() {
 	}
 	defer f.Close()
 
-	//d4p1 := day4.SolveP1(f)
+	//fmt.Println("Part 1")
+	//d4p1 := day4.Solve(f, false)
 	//fmt.Println(d4p1)
 
 	fmt.Println("Part 2")
-	d4p2 := day4.SolveP2(f)
+	d4p2 := day4.Solve(f, true)
 	fmt.Println(d4p2)
 }
 
