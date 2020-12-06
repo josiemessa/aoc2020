@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using AdventOfCode.Day6;
 
 namespace AdventOfCode2020
 {
@@ -7,15 +9,9 @@ namespace AdventOfCode2020
     {
         private static void Main(string[] args)
         {
-            // TODO: change this to accept a file and read in
-            var solver = new ExpenseSolver {Inputs = Inputs};
-            Console.WriteLine("Solve for 2 entries:");
-            var part1 = solver.Solve2(2020);
-            Console.WriteLine($"Multiplies to: {part1}");
-
-            Console.WriteLine("\nSolve for 3 entries:");
-            var part2 = solver.Solve3(2020);
-            Console.WriteLine($"Multiplies to: {part2}");
+            var input = File.ReadAllText($"C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\csharp\\AdventOfCode2020\\AdventOfCode2020\\day6");
+            var checker = new CustomsCheck(input);
+            Console.WriteLine(checker.Solve(true));
         }
 
         private static readonly List<int> Inputs = new List<int>
