@@ -7,16 +7,16 @@ import (
 	"log"
 	"os"
 
-	"github.com/josiemessa/aoc2020/go/day8"
+	"github.com/josiemessa/aoc2020/go/day9"
 )
 
 func main() {
-	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day8")
-	fmt.Println("Day 8")
-	//d8p1 := day8.SolveP1(input)
-	//fmt.Println("Part 1:", d8p1)
-	d8p2 := day8.SolveP2(input)
-	fmt.Println("Part 2:", d8p2)
+	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day9")
+	fmt.Println("Day 9")
+	d9p1 := day9.Solve(input, 25, true)
+	fmt.Println("Part 1:", d9p1)
+	d0p2 := day9.Solve(input, 25, false)
+	fmt.Println("Part 2:", d0p2)
 }
 
 func readFileAsText(name string) string {
