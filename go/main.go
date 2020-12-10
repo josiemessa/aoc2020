@@ -7,16 +7,16 @@ import (
 	"log"
 	"os"
 
-	"github.com/josiemessa/aoc2020/go/day9"
+	"github.com/josiemessa/aoc2020/go/day10"
 )
 
 func main() {
-	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day9")
-	fmt.Println("Day 9")
-	d9p1 := day9.Solve(input, 25, true)
-	fmt.Println("Part 1:", d9p1)
-	d0p2 := day9.Solve(input, 25, false)
-	fmt.Println("Part 2:", d0p2)
+	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day10")
+	fmt.Println("Day 10")
+	//d10p1 := day10.SolveP1(input)
+	//fmt.Println("Part 1:", d10p1)
+	d10 := day10.SolveP2(input)
+	fmt.Println("Part 2:", d10)
 }
 
 func readFileAsText(name string) string {
@@ -38,6 +38,7 @@ func readFileAsLines(name string) []string {
 		log.Fatal("Could not open file", err)
 	}
 	defer f.Close()
+	fmt.Println(f.Name())
 
 	scanner := bufio.NewScanner(f)
 	var lines []string
