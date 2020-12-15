@@ -6,17 +6,19 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"time"
 
-	"github.com/josiemessa/aoc2020/go/day12"
+	"github.com/josiemessa/aoc2020/go/day13"
 )
 
 func main() {
-	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day12")
-	fmt.Println("Day 12")
+	now := time.Now()
+	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day13")
 	//d10p1 := day10.SolveP1(input)
 	//fmt.Println("Part 1:", d10p1)
-	soln := day12.Solve(input)
-	fmt.Println("Part 1:", soln)
+	soln := day13.SolveP2(input)
+	fmt.Println(time.Since(now).Nanoseconds(), "nanoseconds")
+	fmt.Println("Part 2:", soln)
 }
 
 func readFileAsText(name string) string {

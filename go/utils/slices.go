@@ -2,6 +2,7 @@ package utils
 
 import (
 	"log"
+	"math"
 	"strconv"
 )
 
@@ -17,13 +18,13 @@ func SliceAtoi(input []string) []int {
 	return result
 }
 
-func Exists(i int, ints []int) bool {
-	for _, j := range ints {
+func Exists(i int, ints []int) (bool, int) {
+	for index, j := range ints {
 		if j == i {
-			return true
+			return true, index
 		}
 	}
-	return false
+	return false, -1
 }
 
 func Sum(ints []int) (res int) {
@@ -50,4 +51,23 @@ func Product(ints []int, ignoreZeros bool) int {
 		res *= i
 	}
 	return res
+}
+
+func ProductOfFloats(in []float64, ignoreZeros bool) float64 {
+	res := 1.0
+	for _, i := range in {
+		if ignoreZeros && i == 0 {
+			continue
+		}
+		res *= i
+	}
+	return res
+}
+
+func Max(in []int) int {
+	var max float64
+	for _, i := range in {
+		max = math.Max(max, float64(i))
+	}
+	return int(max)
 }

@@ -24,8 +24,8 @@ func (c *Computer) RegisterFunction(name string, f func(int) error) {
 	c.operations[name] = f
 }
 
-func (c *Computer) ExecuteProgramLine(instruction string) error {
-	split := strings.Split(instruction, " ")
+func (c *Computer) ExecuteProgramLine(instruction string, sep string) error {
+	split := strings.Split(instruction, sep)
 	j, err := strconv.Atoi(split[1])
 	if err != nil {
 		log.Fatalf("Could not parse signed int in instruction %q. Err: %#v", instruction, err)
