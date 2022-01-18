@@ -8,15 +8,15 @@ import (
 	"os"
 	"time"
 
-	"github.com/josiemessa/aoc2020/go/day13"
+	"github.com/josiemessa/aoc2020/go/day16"
 )
 
 func main() {
 	now := time.Now()
-	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day13")
+	input := readFileAsLines("C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day16")
 	//d10p1 := day10.SolveP1(input)
 	//fmt.Println("Part 1:", d10p1)
-	soln := day13.SolveP2(input)
+	soln := day16.SolveP2(input)
 	fmt.Println(time.Since(now).Nanoseconds(), "nanoseconds")
 	fmt.Println("Part 2:", soln)
 }

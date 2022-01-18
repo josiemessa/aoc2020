@@ -9,9 +9,9 @@ namespace AdventOfCode2020
     {
         private static void Main(string[] args)
         {
-            var input = File.ReadAllText($"C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\csharp\\AdventOfCode2020\\AdventOfCode2020\\day6");
-            var checker = new CustomsCheck(input);
-            Console.WriteLine(checker.Solve(true));
+            var input = File.ReadAllText($"C:\\dev\\src\\github.com\\josiemessa\\aoc2020\\inputs\\day16");
+            var solver = new Day16(input);
+            solver.Solve();
         }
 
         private static readonly List<int> Inputs = new List<int>
